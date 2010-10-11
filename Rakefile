@@ -13,9 +13,13 @@ begin
 		gem.authors = ["George 'Jake' Wendt"]
 		# gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
 
-		gem.files = FileList['lib/**/*.rb']
+		gem.files  = FileList['config/**/*.rb']
+		gem.files += FileList['app/**/*.rb']
+		gem.files += FileList['lib/**/*.rb']
 		gem.test_files = []
 		gem.add_dependency('rails', '~> 2')
+		gem.add_dependency('ucb_ldap', '>= 1.4.2')
+		gem.add_dependency('rubycas-client', '>= 2.2.1')
 	end
 	Jeweler::GemcutterTasks.new
 rescue LoadError
