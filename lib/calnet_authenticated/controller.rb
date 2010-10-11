@@ -1,6 +1,4 @@
 require 'action_controller'
-require 'action_controller/base'
-require 'application_controller'
 require 'casclient'
 require 'casclient/frameworks/rails/filter'
 
@@ -22,14 +20,28 @@ module CalnetAuthenticated::Controller
 			:cas_base_url => "#{base_server_url}/cas/"
 		)
 
-		base.before_filter :login_required
 		base.helper_method :current_user, :logged_in?
 
-		#base.extend(ClassMethods)
+		base.extend(ClassMethods)
 		base.send(:include, InstanceMethods)
+
+		base.class_eval do
+			class << self
+				alias_method_chain :inherited, :before_filter
+			end
+		end
 	end
 
-protected
+module ClassMethods
+
+private
+
+	def inherited_with_before_filter(base)
+		before_filter :login_required
+		inherited_without_before_filter(base)
+	end
+
+end
 
 module InstanceMethods
 
@@ -72,10 +84,4 @@ module InstanceMethods
 end	#	InstanceMethods
 
 end	#	CalnetAuthenticated::Controller
-#
-#	extending ActionController::Base does not add the before_filters????
-#	I would prefer finding a way to NOT use ApplicationController
-#
-#ActionController::Base.send(:include,CalnetAuthenticated::Controller)
-ApplicationController.send(:include,CalnetAuthenticated::Controller)
-
+ActionController::Base.send(:include,CalnetAuthenticated::Controller)
