@@ -1,0 +1,27 @@
+= CalNet Authenticated
+
+
+== Installation / Usage
+
+ config.gem 'jakewendt-calnet_authenticated',
+   :lib    => 'calnet_authenticated',
+   :source => 'http://rubygems.org'
+
+ class User
+   calnet_authenticated
+ end
+
+== Gemified with Jeweler
+
+ vi Rakefile
+ rake version:write
+ rake gemspec
+ rake install
+
+ rake version:bump:patch
+ rake version:bump:minor
+ rake version:bump:major
+ rake release
+
+
+Copyright (c) 2010 [George 'Jake' Wendt], released under the MIT license
