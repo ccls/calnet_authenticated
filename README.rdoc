@@ -1,6 +1,12 @@
 = CalNet Authenticated
 
 
+== ToDo
+
+* Remove any explicit use of User
+* Include migrations with an rsync or a generator
+
+
 == Installation / Usage
 
  config.gem 'jakewendt-calnet_authenticated',
