@@ -3,8 +3,15 @@
 
 == ToDo
 
-* Remove any explicit use of User
+
+* Remove any explicit use of "User"
 * Include migrations with an rsync or a generator
+* preferably a generator, but they are diff in rails 3
+** script/generate calnet_authenticated User
+** rake task require mods to the Rakefile
+** append requirement to Rakefile
+** create calnet_authenticated_user migration
+** perhaps add initializer (don't know how rails 3 does it)
 
 
 == Installation / Usage
@@ -17,17 +24,23 @@
    calnet_authenticated
  end
 
+... EVENTUALLY, 
+ 
+ script/generate calnet_authenticated User
+
+
 == Gemified with Jeweler
 
  vi Rakefile
  rake version:write
- rake gemspec
- rake install
 
  rake version:bump:patch
  rake version:bump:minor
  rake version:bump:major
- rake release
 
+ rake gemspec
+
+ rake install
+ rake release
 
 Copyright (c) 2010 [George 'Jake' Wendt], released under the MIT license
