@@ -1,6 +1,4 @@
 require 'action_controller'
-require 'casclient'
-require 'casclient/frameworks/rails/filter'
 
 #	Further info regarding UCB's CAS setup can be found at 
 #	https://calnet.berkeley.edu/developers/developerResources/cas/CASAppSetup.html#firstLevelServers
@@ -13,6 +11,8 @@ module CalnetAuthenticated::Controller
 	#	those that are passive and will use the cas_gateway_filter
 	#	instead.
 	def self.included(base)
+require 'casclient'
+require 'casclient/frameworks/rails/filter'
 		base_server_url = ( RAILS_ENV == "production" ) ? "https://auth.berkeley.edu" : "https://auth-test.berkeley.edu"
 
 		CASClient::Frameworks::Rails::Filter.configure(
@@ -37,6 +37,8 @@ module ClassMethods
 private
 
 	def inherited_with_before_filter(base)
+require 'casclient'
+require 'casclient/frameworks/rails/filter'
 		before_filter :login_required
 		inherited_without_before_filter(base)
 	end
