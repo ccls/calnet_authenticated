@@ -1,5 +1,13 @@
 = CalNet Authenticated
 
+In Heavy Development ...
+
+
+
+
+This is a "rails" gem, so much of the code will
+be for testing in a rails app, but will not be
+included in the actual gem.
 
 == ToDo
 
@@ -14,7 +22,6 @@
 ** perhaps add initializer (don't know how rails 3 does it)
 * import some tests
 * include any test helpers for users
-
 
 == Installation / Usage
 
