@@ -15,11 +15,11 @@ included in the actual gem.
 * Remove any explicit use of "User"
 * Include migrations with an rsync or a generator
 * preferably a generator, but they are diff in rails 3
-** script/generate calnet_authenticated User
-** rake task require mods to the Rakefile
-** append requirement to Rakefile
-** create calnet_authenticated_user migration
-** perhaps add initializer (don't know how rails 3 does it)
+  * script/generate calnet_authenticated User
+  * rake task require mods to the Rakefile
+  * append requirement to Rakefile
+  * create calnet_authenticated_user migration
+  * perhaps add initializer (don't know how rails 3 does it)
 * import some tests
 * include any test helpers for users
 
