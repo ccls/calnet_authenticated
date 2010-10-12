@@ -1,0 +1,14 @@
+script/generate calnet_authenticated CalnetAuthenticatedName [options]
+
+
+Description:
+    Explain the generator
+
+Example:
+    ./script/generate calnet_authenticated User
+
+    This will create:
+        a migration file for 
+
+
+blah blah blah
