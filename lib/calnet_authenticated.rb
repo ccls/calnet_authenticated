@@ -3,6 +3,7 @@ module CalnetAuthenticated
 end
 require 'calnet_authenticated/user_model'
 require 'calnet_authenticated/controller'
+require 'calnet_authenticated/test_helper'
 
 %w{models controllers}.each do |dir|
 	path = File.expand_path(File.join(File.dirname(__FILE__), '../app', dir))
