@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{jakewendt-calnet_authenticated}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George 'Jake' Wendt"]
@@ -17,11 +17,6 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "app/controllers/sessions_controller.rb",
-     "config/boot.rb",
-     "config/environment.rb",
-     "config/environments/development.rb",
-     "config/environments/test.rb",
-     "config/initializers/session_store.rb",
      "config/routes.rb",
      "lib/calnet_authenticated.rb",
      "lib/calnet_authenticated/controller.rb",
@@ -31,14 +26,14 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/jakewendt/calnet_authenticated}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{one-line summary of your gem}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rails>, ["~> 2"])
       s.add_runtime_dependency(%q<ucb_ldap>, [">= 1.4.2"])
       s.add_runtime_dependency(%q<rubycas-client>, [">= 2.2.1"])

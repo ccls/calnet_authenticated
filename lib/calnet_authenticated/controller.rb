@@ -35,7 +35,12 @@ module ClassMethods
 private
 
 	def inherited_with_before_filter(base)
-		before_filter :login_required
+		identifier = 'inherited_calnet_authenticated_login_required'
+		unless filter_chain.select(&:before?).map(&:identifier
+			).include?(identifier)
+			before_filter :login_required,
+				:identifier => identifier
+		end
 		inherited_without_before_filter(base)
 	end
 
