@@ -18,8 +18,23 @@ class SessionsController < ApplicationController
 #	done in CASClient ... logout
 #		reset_session
 #	if done above, will cause
-#		undefined method `destroy' for {}:Hash
-#	in ...
+#		NoMethodError (undefined method `destroy' for {}:Hash):
+#		rubycas-client-2.2.1/lib/casclient/frameworks/rails/filter.rb:
+#				183:in `send'
+#		rubycas-client-2.2.1/lib/casclient/frameworks/rails/filter.rb:
+#				183:in `logout'
+#
+# 179  def logout(controller, service = nil)
+# 180    referer = service || controller.request.referer
+# 181    st = controller.session[:cas_last_valid_ticket]
+# 182    delete_service_session_lookup(st) if st
+# 183    controller.send(:reset_session)
+# 184    controller.send(:redirect_to, client.logout_url(referer))
+# 185  end
+#
+#		This seems odd as you should be able to reset the
+#		session anytime and as often as you'd like.
+#
 		CASClient::Frameworks::Rails::Filter.logout(self)
 	end
 
