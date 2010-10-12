@@ -15,7 +15,11 @@ class SessionsController < ApplicationController
 
 	def destroy
 		calnetuid = session[:calnetuid]
-		reset_session
+#	done in CASClient ... logout
+#		reset_session
+#	if done above, will cause
+#		undefined method `destroy' for {}:Hash
+#	in ...
 		CASClient::Frameworks::Rails::Filter.logout(self)
 	end
 
