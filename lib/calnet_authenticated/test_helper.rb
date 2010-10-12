@@ -51,11 +51,11 @@ module CalnetAuthenticated::TestHelper
 	end
 
 	def assert_logged_in
-		flunk "Method not yet defined"
+		assert_not_nil session[:calnetuid]
 	end
 
 	def assert_not_logged_in
-		flunk "Method not yet defined"
+		assert_nil session[:calnetuid]
 	end
 
 end

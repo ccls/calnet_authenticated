@@ -31,13 +31,9 @@ Rails::Initializer.run do |config|
 		:lib => 'assert_this_and_that',
 		:source => 'http://rubygems.org'
 
-
-
 	config.plugin_paths = [
-		File.expand_path(File.join(File.dirname(__FILE__),'../../..')),
-		File.expand_path(File.join(File.dirname(__FILE__),'../../../..','peter'))
-#		File.expand_path(File.join(File.dirname(__FILE__),'../..')),
-#		File.expand_path(File.join(File.dirname(__FILE__),'../../..','peter'))
+		File.expand_path(File.join(File.dirname(__FILE__),'../..')),
+		File.expand_path(File.join(File.dirname(__FILE__),'../../..','peter'))
 	]
 	config.plugins = [
 		:html_test,
@@ -45,17 +41,15 @@ Rails::Initializer.run do |config|
 
 	config.frameworks -= [:active_resource]
 
-	config.routes_configuration_file = File.expand_path(
-		File.join(File.dirname(__FILE__),'../../config/routes.rb'))
+#	config.routes_configuration_file = File.expand_path(
+#		File.join(File.dirname(__FILE__),'../../config/routes.rb'))
 #		File.join(File.dirname(__FILE__),'..','test/config/routes.rb'))
 
 	config.autoload_paths += [
-#		File.expand_path(
-#			File.join(File.dirname(__FILE__),'..','test/app/models')),
-#		File.expand_path(
-#			File.join(File.dirname(__FILE__),'..','test/app/controllers'))
 		File.expand_path(
-			File.join(File.dirname(__FILE__),'../../app/controllers'))
+			File.join(File.dirname(__FILE__),'..','test/app/models')),
+		File.expand_path(
+			File.join(File.dirname(__FILE__),'..','test/app/controllers'))
 	]
 
 #	config.eager_load_paths += [
@@ -67,9 +61,8 @@ Rails::Initializer.run do |config|
 
 #	config.controller_paths += [
 #		File.expand_path(
-#			File.join(File.dirname(__FILE__),'../../app/controllers'))
+#			File.join(File.dirname(__FILE__),'..','test/app/controllers'))
 #	]
-
 
  if RUBY_PLATFORM =~ /java/
 		#	I'm surprised that I don't need this in my apps.
@@ -85,4 +78,7 @@ Rails::Initializer.run do |config|
 #	config.action_mailer.default_url_options = { 
 #		:host => "localhost:3000" }
 
+config.after_initialize do 
+	require 'calnet_authenticated'
+end
 end
