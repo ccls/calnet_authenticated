@@ -1,3 +1,7 @@
+require 'casclient'
+require 'casclient/frameworks/rails/filter'
+require 'ucb_ldap'
+
 module CalnetAuthenticated
 #	predefine namespace
 end
