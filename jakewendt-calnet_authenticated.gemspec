@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{jakewendt-calnet_authenticated}
-  s.version = "0.1.5"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George 'Jake' Wendt"]
@@ -17,6 +17,11 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "app/controllers/sessions_controller.rb",
+     "config/boot.rb",
+     "config/environment.rb",
+     "config/environments/development.rb",
+     "config/environments/test.rb",
+     "config/initializers/session_store.rb",
      "config/routes.rb",
      "lib/calnet_authenticated.rb",
      "lib/calnet_authenticated/controller.rb",
