@@ -12,6 +12,8 @@
 ** append requirement to Rakefile
 ** create calnet_authenticated_user migration
 ** perhaps add initializer (don't know how rails 3 does it)
+* import some tests
+* include any test helpers for users
 
 
 == Installation / Usage
