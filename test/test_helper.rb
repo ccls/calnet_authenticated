@@ -9,9 +9,3 @@ class ActiveSupport::TestCase
 	self.use_instantiated_fixtures  = false
 	fixtures :all
 end
-
-class ActionController::TestCase
-
-#	setup :turn_https_on
-
-end
