@@ -24,7 +24,7 @@ begin
 		gem.authors = ["George 'Jake' Wendt"]
 		# gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
 
-		gem.files  = FileList['config/**/*.rb']
+		gem.files  = FileList['config/routes.rb']
 		gem.files += FileList['app/**/*.rb']
 		gem.files += FileList['lib/**/*.rb']
 		gem.test_files = []
