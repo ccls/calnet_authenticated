@@ -16,6 +16,7 @@ included in the actual gem.
   * can't use an alias, but added ...
     * eval "CalnetAuthenticated::User = self"
 	* ... and it seems to do the trick
+  * I know, I'm a sinner.
 * Include migrations with an rsync or a generator
 * preferably a generator, but they are diff in rails 3
   * rake task require mods to the Rakefile
