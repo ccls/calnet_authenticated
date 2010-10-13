@@ -11,7 +11,9 @@ module CalnetAuthenticated::Controller
 	#	those that are passive and will use the cas_gateway_filter
 	#	instead.
 	def self.included(base)
-		base_server_url = ( RAILS_ENV == "production" ) ? "https://auth.berkeley.edu" : "https://auth-test.berkeley.edu"
+		base_server_url = ( RAILS_ENV == "production" ) ? 
+			"https://auth.berkeley.edu" : 
+			"https://auth-test.berkeley.edu"
 
 		CASClient::Frameworks::Rails::Filter.configure(
 			:username_session_key => :calnetuid,
@@ -61,12 +63,10 @@ module InstanceMethods
 
 	def current_user
 		@current_user ||= if( session && session[:calnetuid] )
-#
-#	Get rid of the fixed 'User'
-#
-#				User.find_create_and_update_by_uid(session[:calnetuid])
-#				CalnetAuthenticated::User.find_create_and_update_by_uid(session[:calnetuid])
-				CalnetAuthenticatedUser().find_create_and_update_by_uid(session[:calnetuid])
+				#	if the user model hasn't been loaded yet
+				#	this will return nil and fail.
+				CalnetAuthenticatedUser().
+					find_create_and_update_by_uid(session[:calnetuid])
 			else
 				nil
 			end

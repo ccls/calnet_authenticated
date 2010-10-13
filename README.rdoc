@@ -12,11 +12,6 @@ included in the actual gem.
 == ToDo
 
 
-* Remove any explicit use of "User"
-  * can't use an alias, but added ...
-    * eval "CalnetAuthenticated::User = self"
-	* ... and it seems to do the trick
-  * I know, I'm a sinner.
 * Include migrations with an rsync or a generator
 * preferably a generator, but they are diff in rails 3
   * rake task require mods to the Rakefile
@@ -38,6 +33,17 @@ included in the actual gem.
 
  # Generates a db migration
  script/generate calnet_authenticated User
+
+As some methods, like current_user, are flexible
+and dependent upon the developer's choice of user
+model, eager loading isn't good enough.
+The developer will need to ensure that the model
+is always around.  I chose to simply add ...
+
+ require 'user' <- or whatever your user model is
+
+to the bottom of my config/environment.rb outside
+of the initializer block.
 
 
 == Gemified with Jeweler
