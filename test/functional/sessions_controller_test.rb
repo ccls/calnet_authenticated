@@ -63,7 +63,7 @@ class SessionsControllerTest < ActionController::TestCase
 		assert_logged_in
 		assert_not_nil @controller.current_user
 		assert @controller.current_user.is_a?(User)
-		assert @controller.current_user.is_a?(CalnetAuthenticated::User)
+		assert @controller.current_user.is_a?(CalnetAuthenticatedUser())
 		assert_redirected_to '/'
 	end
 

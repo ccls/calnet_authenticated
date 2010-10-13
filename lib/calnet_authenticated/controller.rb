@@ -65,7 +65,8 @@ module InstanceMethods
 #	Get rid of the fixed 'User'
 #
 #				User.find_create_and_update_by_uid(session[:calnetuid])
-				CalnetAuthenticated::User.find_create_and_update_by_uid(session[:calnetuid])
+#				CalnetAuthenticated::User.find_create_and_update_by_uid(session[:calnetuid])
+				CalnetAuthenticatedUser().find_create_and_update_by_uid(session[:calnetuid])
 			else
 				nil
 			end
