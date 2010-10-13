@@ -1,19 +1,18 @@
 class CalnetAuthenticatedGenerator < Rails::Generator::NamedBase
 
-	def initialize(runtime_args, runtime_options = {})
-puts "In initialize"
-#		#	Rails::Generator::NamedBase apparently requires
-#		#	at least 1 argumnet.  The first will be used
-#		#	for things like migration class name
-#		runtime_args.unshift 'CreateTracksTable'
-		super
-	end
+#		def initialize(runtime_args, runtime_options = {})
+#	puts "In initialize"
+#	#		#	Rails::Generator::NamedBase apparently requires
+#	#		#	at least 1 argumnet.  The first will be used
+#	#		#	for things like migration class name
+#	#		runtime_args.unshift 'CreateTracksTable'
+#			super
+#		end
 
 	def manifest
-puts "In manifest"
 		record do |m|
-#			m.migration_template 'migration.rb', 'db/migrate', 
-#				:migration_file_name => "add_tracking_info_to_#{file_path.gsub(/\//, '_').pluralize}"
+			m.migration_template 'migration.rb', 'db/migrate', 
+				:migration_file_name => "add_calnet_authenticated_columns_to_#{file_path.gsub(/\//, '_').pluralize}"
 		end
 	end
 
