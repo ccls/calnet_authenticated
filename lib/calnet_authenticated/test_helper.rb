@@ -1,11 +1,12 @@
 module CalnetAuthenticated::TestHelper
 
 	def login_as( user=nil )
-		uid = ( user.is_a?(User) ) ? user.uid : user
+		uid = ( user.is_a?(CalnetAuthenticated::User) ) ? user.uid : user
 		if !uid.blank?
 			@request.session[:calnetuid] = uid
 			stub_ucb_ldap_person()
-			User.find_create_and_update_by_uid(uid)
+#			User.find_create_and_update_by_uid(uid)
+			CalnetAuthenticated::User.find_create_and_update_by_uid(uid)
 
 			CASClient::Frameworks::Rails::Filter.stubs(
 				:filter).returns(true)

@@ -16,6 +16,14 @@ module CalnetAuthenticated::UserModel
 			include CalnetAuthenticated::UserModel::InstanceMethods
 			extend  CalnetAuthenticated::UserModel::ClassMethods
 
+			#	This seems to work and I am surprised.
+			#	>> User.object_id
+			#	=> 2162702020
+			#	>> CalnetAuthenticated::User.object_id
+			#	=> 2162702020
+			#	The purpose is to allow the user to specify
+			#	the model name.  
+			eval "CalnetAuthenticated::User = self"
 		end
 	end	#	PrepMethod
 

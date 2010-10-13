@@ -60,11 +60,12 @@ module InstanceMethods
 	alias_method :login_required, :current_user_required
 
 	def current_user
-		@current_user ||= if( session[:calnetuid] )
+		@current_user ||= if( session && session[:calnetuid] )
 #
 #	Get rid of the fixed 'User'
 #
-				User.find_create_and_update_by_uid(session[:calnetuid])
+#				User.find_create_and_update_by_uid(session[:calnetuid])
+				CalnetAuthenticated::User.find_create_and_update_by_uid(session[:calnetuid])
 			else
 				nil
 			end
