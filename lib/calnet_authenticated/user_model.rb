@@ -16,6 +16,9 @@ module CalnetAuthenticated::UserModel
 			include CalnetAuthenticated::UserModel::InstanceMethods
 			extend  CalnetAuthenticated::UserModel::ClassMethods
 
+			#	All I want is a reference to the
+			#	calling model.
+
 			#	This seems to work and I am surprised.
 			#	>> User.object_id
 			#	=> 2162702020
@@ -23,7 +26,17 @@ module CalnetAuthenticated::UserModel
 			#	=> 2162702020
 			#	The purpose is to allow the user to specify
 			#	the model name.  
+#			class CalnetAuthenticated::User < self; end
+#	=> class definition in method body
+#			CalnetAuthenticated::User = Class.new( self )
+#	=> dynamic constant assignment
 			eval "CalnetAuthenticated::User = self"
+#			Object.class_eval do
+#			define_method 'CalnetAuthenticated::User' do
+#				self
+#			end
+#			end
+#	=> just doesn't work
 		end
 	end	#	PrepMethod
 
