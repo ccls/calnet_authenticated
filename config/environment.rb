@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.9' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.10' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -35,14 +35,11 @@ Rails::Initializer.run do |config|
 		File.expand_path(File.join(File.dirname(__FILE__),'../..')),
 		File.expand_path(File.join(File.dirname(__FILE__),'../../..','peter'))
 	]
-	config.plugins = [
-		:html_test,
-		:html_test_extension]
+	config.plugins = [ :html_test, :html_test_extension]
 
 	config.frameworks -= [:active_resource]
 
 	config.routes_configuration_file = File.expand_path(
-#		File.join(File.dirname(__FILE__),'../../config/routes.rb'))
 		File.join(File.dirname(__FILE__),'..','test/config/routes.rb'))
 
 	config.autoload_paths += [
