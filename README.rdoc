@@ -19,7 +19,7 @@ included in the actual gem.
   * perhaps add initializer (don't know how rails 3 does it)
 * import some tests
 * include any test helpers for users
-
+* Cleanup code.  Isolate requirements
 
 == Installation / Usage
 
