@@ -19,7 +19,16 @@ require 'calnet_authenticated/test_helper'
 end
 
 #	I don't think this is needed
-#ActionController::Routing::Routes.add_configuration_file(
-#	File.expand_path(
-#		File.join(
-#			File.dirname(__FILE__), '../config/routes.rb')))
+#
+#	Why do I need this for calnet_authenticated,
+#	but not for authorized or photos or ...
+#
+#	I think that it depends on whether the gem is
+#	explictly added to the configuration with config.gem
+#	or just a dependency with a require.
+#	Since buffler and clic and engine only have config.gem ccls_engine,
+#	we need to be explicit, which is probably better anyway.
+ActionController::Routing::Routes.add_configuration_file(
+	File.expand_path(
+		File.join(
+			File.dirname(__FILE__), '../config/routes.rb')))
