@@ -27,7 +27,7 @@ module CalnetAuthenticated::Controller
 
 		base.class_eval do
 			class << self
-				alias_method_chain :inherited, :before_filter
+				alias_method_chain :inherited, :calnet_before_filter
 			end
 		end
 	end
@@ -36,14 +36,14 @@ module ClassMethods
 
 private
 
-	def inherited_with_before_filter(base)
+	def inherited_with_calnet_before_filter(base)
 		identifier = 'inherited_calnet_authenticated_login_required'
 		unless filter_chain.select(&:before?).map(&:identifier
 			).include?(identifier)
 			before_filter :login_required,
 				:identifier => identifier
 		end
-		inherited_without_before_filter(base)
+		inherited_without_calnet_before_filter(base)
 	end
 
 end

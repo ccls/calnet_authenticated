@@ -1,0 +1,12 @@
+<fieldset id='user'>
+<legend><%= @user.sn %></legend>
+
+<div class='person'><dl>
+	<% %w( displayname mail uid ).each do |key| -%>
+		<dt><%= key -%></dt>
+		<dd><%= @user.attributes[key] -%></dd>
+	<% end -%>
+</dl>
+</div>
+
+</fieldset> 

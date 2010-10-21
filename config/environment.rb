@@ -31,11 +31,20 @@ Rails::Initializer.run do |config|
 		:lib => 'assert_this_and_that',
 		:source => 'http://rubygems.org'
 
+	config.gem 'jakewendt-rails_helpers',
+		:lib => 'rails_helpers',
+		:source => 'http://rubygems.org'
+
+#	config.gem 'jakewendt-authorized',
+#		:lib => 'authorized',
+#		:source => 'http://rubygems.org'
+
 	config.plugin_paths = [
 		File.expand_path(File.join(File.dirname(__FILE__),'../..')),
 		File.expand_path(File.join(File.dirname(__FILE__),'../../..','peter'))
 	]
-	config.plugins = [ :html_test, :html_test_extension]
+	config.plugins = [ :calnet_authenticated,
+		:html_test, :html_test_extension]
 
 	config.frameworks -= [:active_resource]
 
@@ -61,6 +70,13 @@ Rails::Initializer.run do |config|
 #			File.join(File.dirname(__FILE__),'..','test/app/controllers'))
 #	]
 
+
+	config.view_path = [
+		File.expand_path(
+			File.join(File.dirname(__FILE__),'..','test/app/views'))
+	]
+
+
  if RUBY_PLATFORM =~ /java/
 		#	I'm surprised that I don't need this in my apps.
 		config.gem 'activerecord-jdbcsqlite3-adapter',
@@ -75,7 +91,8 @@ Rails::Initializer.run do |config|
 #	config.action_mailer.default_url_options = { 
 #		:host => "localhost:3000" }
 
-config.after_initialize do 
-	require 'calnet_authenticated'
+#config.after_initialize do 
+#	require 'calnet_authenticated'
+#end
 end
-end
+require 'user'
