@@ -31,8 +31,8 @@ Rails::Initializer.run do |config|
 		:lib => 'assert_this_and_that',
 		:source => 'http://rubygems.org'
 
-	config.gem 'jakewendt-rails_helpers',
-		:lib => 'rails_helpers',
+	config.gem 'jakewendt-simply_helpful',
+		:lib => 'simply_helpful',
 		:source => 'http://rubygems.org'
 
 	config.plugin_paths = [
