@@ -17,6 +17,8 @@ begin
 		gem.files += FileList['app/**/*.rb']
 		gem.files += FileList['lib/**/*.rb']
 		gem.files += FileList['generators/**/*']	#	this may need tightened!
+		gem.files -= FileList['**/versions/*']
+
 		gem.test_files = []
 		gem.add_dependency('rails', '~> 2')
 		gem.add_dependency('ucb_ldap', '>= 1.4.2')
