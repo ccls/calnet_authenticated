@@ -5,6 +5,7 @@ require 'test_helper'
 #	def show; redirect_to '/'; end
 #end
 class CalnetAuthenticated::SessionsControllerTest < ActionController::TestCase
+	tests SessionsController
 
 	test "should logout if authenticated" do
 		login_as Factory(:user)
