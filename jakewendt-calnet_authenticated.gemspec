@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{jakewendt-calnet_authenticated}
-  s.version = "0.3.7"
+  s.version = "0.3.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George 'Jake' Wendt"]
@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
      "config/routes.rb",
      "generators/calnet_authenticated/USAGE",
      "generators/calnet_authenticated/calnet_authenticated_generator.rb",
+     "generators/calnet_authenticated/templates/functional/sessions_controller_test.rb",
      "generators/calnet_authenticated/templates/migration.rb",
      "lib/calnet_authenticated.rb",
      "lib/calnet_authenticated/autotest.rb",
@@ -40,7 +41,7 @@ Gem::Specification.new do |s|
      "test/app/models/user.rb",
      "test/config/routes.rb",
      "test/factories.rb",
-     "test/functional/sessions_controller_test.rb",
+     "test/functional/calnet_authenticated/sessions_controller_test.rb",
      "test/test_helper.rb"
   ]
 
