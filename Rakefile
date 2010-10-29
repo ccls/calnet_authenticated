@@ -19,7 +19,13 @@ begin
 		gem.files += FileList['generators/**/*']	#	this may need tightened!
 		gem.files -= FileList['**/versions/*']
 
-		gem.test_files = []
+#   
+#		I'm not quite sure if it matters whether these files
+#		are included as 'files' or 'test_files', but
+#		they need to be included if I'm gonna use'em.
+#
+		gem.test_files = FileList['test/**/*.rb']
+
 		gem.add_dependency('rails', '~> 2')
 		gem.add_dependency('ucb_ldap', '>= 1.4.2')
 		gem.add_dependency('rubycas-client', '>= 2.2.1')

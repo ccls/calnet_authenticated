@@ -11,6 +11,21 @@ class CalnetAuthenticatedGenerator < Rails::Generator::NamedBase
 
 	def manifest
 		record do |m|
+
+			File.open('Rakefile','a'){|f| 
+				f.puts <<-EOF
+#       From `script/generate calnet_authenticated` ...
+require 'calnet_authenticated/test_tasks'
+				EOF
+			}
+
+			File.open('.autotest','a'){|f| 
+				f.puts <<-EOF
+#       From `script/generate calnet_authenticated` ...
+require 'calnet_authenticated/autotest'
+				EOF
+			}
+
 			m.migration_template 'migration.rb', 'db/migrate', 
 				:migration_file_name => "add_calnet_authenticated_columns_to_#{file_path.gsub(/\//, '_').pluralize}"
 		end
