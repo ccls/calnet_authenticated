@@ -8,14 +8,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 
-	#	rails 3 requires i18n gem which will load
-	#	a version incompatible with 2.3.8.
-	#	It will generate several of ...
-	#	The {{key}} interpolation syntax in I18n 
-	#	messages is deprecated. Please use %{key} instead.
-	#	This must be called early, or someone else will load a newer version.
-#	config.gem "i18n", :version => '=0.3.7'
-
 	# For CAS / CalNet Authentication
 	config.gem "rubycas-client"
 
@@ -27,8 +19,8 @@ Rails::Initializer.run do |config|
 		:lib    => "factory_girl",
 		:source => "http://gems.github.com"
 
-	config.gem 'jakewendt-assert_this_and_that',
-		:lib => 'assert_this_and_that',
+	config.gem 'jakewendt-simply_testable',
+		:lib => 'simply_testable',
 		:source => 'http://rubygems.org'
 
 	config.gem 'jakewendt-simply_helpful',
