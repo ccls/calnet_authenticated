@@ -1,12 +1,12 @@
-class CalnetAuthenticated::User
-	cattr_accessor :model
-end
-Object.class_eval do
-	#	MUST BE ACCESSED WITH TRAILING ()
-	define_method 'CalnetAuthenticatedUser' do
-		CalnetAuthenticated::User.model
-	end
-end
+#class CalnetAuthenticated::User
+#	cattr_accessor :model
+#end
+#Object.class_eval do
+#	#	MUST BE ACCESSED WITH TRAILING ()
+#	define_method 'CalnetAuthenticatedUser' do
+#		CalnetAuthenticated::User.model
+#	end
+#end
 module CalnetAuthenticated::UserModel
 
 	def self.included(base)
@@ -40,7 +40,10 @@ module CalnetAuthenticated::UserModel
 #			CalnetAuthenticated::User = Class.new( self )
 #	=> dynamic constant assignment
 #			eval "CalnetAuthenticated::User = self"
-			CalnetAuthenticated::User.model = self
+#			CalnetAuthenticated::User.model = self
+
+			eval("class ::CalnetAuthenticatedUser < #{self.name}; end")
+
 #			Object.class_eval do
 ##				class << self
 #				attr_accessor :calnet_authenticated_user

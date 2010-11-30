@@ -65,8 +65,8 @@ module InstanceMethods
 		@current_user ||= if( session && session[:calnetuid] )
 				#	if the user model hasn't been loaded yet
 				#	this will return nil and fail.
-				CalnetAuthenticatedUser().
-					find_create_and_update_by_uid(session[:calnetuid])
+#				CalnetAuthenticatedUser().
+				CalnetAuthenticatedUser.find_create_and_update_by_uid(session[:calnetuid])
 			else
 				nil
 			end
