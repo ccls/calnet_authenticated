@@ -42,7 +42,7 @@ module CalnetAuthenticated::UserModel
 #			eval "CalnetAuthenticated::User = self"
 #			CalnetAuthenticated::User.model = self
 
-			eval("class ::CalnetAuthenticatedUser < #{self.name}; end")
+			$CalnetAuthenticatedUser = self
 
 #			Object.class_eval do
 ##				class << self
