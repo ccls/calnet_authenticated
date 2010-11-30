@@ -42,6 +42,10 @@ module CalnetAuthenticated::UserModel
 #			eval "CalnetAuthenticated::User = self"
 #			CalnetAuthenticated::User.model = self
 
+#			CalnetAuthenticatedUser = self
+#		didn't work due to something regarding the Role assocation
+#		I should try with has_many :through rather than habtm
+
 			$CalnetAuthenticatedUser = self
 
 #			Object.class_eval do
