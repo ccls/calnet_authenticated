@@ -24,7 +24,6 @@ included in the actual gem.
 == Installation / Usage
 
  config.gem 'jakewendt-calnet_authenticated',
-   :lib    => 'calnet_authenticated',
    :source => 'http://rubygems.org'
 
  class User
