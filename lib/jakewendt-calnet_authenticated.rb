@@ -1,0 +1,1 @@
+require 'calnet_authenticated'
