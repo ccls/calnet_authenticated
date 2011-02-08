@@ -1,1 +1,1 @@
-require 'calnet_authenticated'
+require 'jakewendt-calnet_authenticated'

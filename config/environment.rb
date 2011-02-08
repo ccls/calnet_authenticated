@@ -19,13 +19,13 @@ Rails::Initializer.run do |config|
 		:lib    => "factory_girl",
 		:source => "http://gems.github.com"
 
-	config.gem 'jakewendt-simply_testable',
-		:lib => 'simply_testable',
-		:source => 'http://rubygems.org'
+	config.gem 'jakewendt-simply_testable'	#,
+#		:lib => 'simply_testable',
+#		:source => 'http://rubygems.org'
 
-	config.gem 'jakewendt-simply_helpful',
-		:lib => 'simply_helpful',
-		:source => 'http://rubygems.org'
+	config.gem 'jakewendt-simply_helpful'	#,
+#		:lib => 'simply_helpful',
+#		:source => 'http://rubygems.org'
 
 	config.plugin_paths = [
 		File.expand_path(File.join(File.dirname(__FILE__),'../..')),
