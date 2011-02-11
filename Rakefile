@@ -5,11 +5,11 @@ require 'rake/rdoctask'
 begin
 	require 'jeweler'
 	Jeweler::Tasks.new do |gem|
-		gem.name = "jakewendt-calnet_authenticated"
+		gem.name = "ccls-calnet_authenticated"
 		gem.summary = %Q{one-line summary of your gem}
 		gem.description = %Q{longer description of your gem}
-		gem.email = "github@jake.otherinbox.com"
-		gem.homepage = "http://github.com/jakewendt/calnet_authenticated"
+		gem.email = "github@jakewendt.com"
+		gem.homepage = "http://github.com/ccls/calnet_authenticated"
 		gem.authors = ["George 'Jake' Wendt"]
 		# gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
 

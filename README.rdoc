@@ -23,7 +23,7 @@ included in the actual gem.
 
 == Installation / Usage
 
- config.gem 'jakewendt-calnet_authenticated',
+ config.gem 'ccls-calnet_authenticated',
    :source => 'http://rubygems.org'
 
  class User
