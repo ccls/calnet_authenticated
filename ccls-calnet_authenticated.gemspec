@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{jakewendt-calnet_authenticated}
-  s.version = "0.5.2"
+  s.name = %q{ccls-calnet_authenticated}
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George 'Jake' Wendt"]
-  s.date = %q{2011-02-08}
+  s.date = %q{2011-02-11}
   s.description = %q{longer description of your gem}
-  s.email = %q{github@jake.otherinbox.com}
+  s.email = %q{github@jakewendt.com}
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
@@ -30,9 +30,9 @@ Gem::Specification.new do |s|
     "lib/calnet_authenticated/test_helper.rb",
     "lib/calnet_authenticated/test_tasks.rb",
     "lib/calnet_authenticated/user_model.rb",
-    "lib/jakewendt-calnet_authenticated.rb"
+    "lib/ccls-calnet_authenticated.rb"
   ]
-  s.homepage = %q{http://github.com/jakewendt/calnet_authenticated}
+  s.homepage = %q{http://github.com/ccls/calnet_authenticated}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.0}
   s.summary = %q{one-line summary of your gem}
