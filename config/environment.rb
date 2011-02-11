@@ -21,13 +21,12 @@ Rails::Initializer.run do |config|
 
 	config.gem 'jakewendt-simply_testable'
 	config.gem 'jakewendt-simply_helpful'
+	config.gem 'jakewendt-html_test'
 
 	config.plugin_paths = [
-		File.expand_path(File.join(File.dirname(__FILE__),'../..')),
-		File.expand_path(File.join(File.dirname(__FILE__),'../../..','peter'))
+		File.expand_path(File.join(File.dirname(__FILE__),'../..'))
 	]
-	config.plugins = [ :calnet_authenticated,
-		:html_test, :html_test_extension]
+	config.plugins = [ :calnet_authenticated ]
 
 	config.frameworks -= [:active_resource]
 
