@@ -19,7 +19,7 @@ Rails::Initializer.run do |config|
 		:lib    => "factory_girl",
 		:source => "http://gems.github.com"
 
-	config.gem 'jakewendt-simply_testable'
+	config.gem 'jakewendt-rails_extension'
 	config.gem 'jakewendt-simply_helpful'
 	config.gem 'jakewendt-html_test'
 
