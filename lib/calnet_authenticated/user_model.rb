@@ -78,7 +78,7 @@ module CalnetAuthenticated::UserModel
 				:sn              => person.sn.first,
 				:mail            => person.mail.first || '',
 				:telephonenumber => person.telephonenumber.first
-			})
+			}) unless person.nil?
 			user
 		end
 	end	#	ClassMethods
