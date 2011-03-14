@@ -5,7 +5,11 @@ require 'ucb_ldap'
 module CalnetAuthenticated
 #	predefine namespace
 end
-require 'calnet_authenticated/user_model'
+module Calnet
+#	predefine namespace
+end
+require 'calnet_authenticated/calnet_user'
+#require 'calnet_authenticated/user_model'
 require 'calnet_authenticated/controller'
 require 'calnet_authenticated/test_helper'
 

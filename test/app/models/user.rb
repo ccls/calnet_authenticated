@@ -1,3 +1,3 @@
-class User < ActiveRecord::Base
-	calnet_authenticated
+class User < Calnet::User
+#	calnet_authenticated
 end
