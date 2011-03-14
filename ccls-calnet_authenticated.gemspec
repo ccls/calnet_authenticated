@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ccls-calnet_authenticated}
-  s.version = "1.0.2"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George 'Jake' Wendt"]
-  s.date = %q{2011-02-16}
+  s.date = %q{2011-03-14}
   s.description = %q{longer description of your gem}
   s.email = %q{github@jakewendt.com}
   s.extra_rdoc_files = [
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "generators/calnet_authenticated/templates/migration.rb",
     "lib/calnet_authenticated.rb",
     "lib/calnet_authenticated/autotest.rb",
+    "lib/calnet_authenticated/calnet_user.rb",
     "lib/calnet_authenticated/controller.rb",
     "lib/calnet_authenticated/test_helper.rb",
     "lib/calnet_authenticated/test_tasks.rb",
@@ -34,7 +35,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = %q{http://github.com/ccls/calnet_authenticated}
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.2}
+  s.rubygems_version = %q{1.5.3}
   s.summary = %q{one-line summary of your gem}
   s.test_files = [
     "test/app/controllers/application_controller.rb",
