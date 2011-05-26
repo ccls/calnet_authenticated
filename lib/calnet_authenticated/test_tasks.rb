@@ -27,3 +27,13 @@ Rake::Task['test:units'].prerequisites.unshift(
 #	Hmmm
 
 
+#
+#	used in simply_helpful's rake test:coverage to run gem's 
+#		tests in the context of the application
+#
+@gem_test_dirs ||= []
+@gem_test_dirs << File.expand_path(File.join(File.dirname(__FILE__),
+	'/../../test/unit/calnet_authenticated/'))
+@gem_test_dirs << File.expand_path(File.join(File.dirname(__FILE__),
+	'/../../test/functional/calnet_authenticated/'))
+
