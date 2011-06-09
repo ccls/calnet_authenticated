@@ -1,6 +1,8 @@
-class AddCalnetAuthenticatedColumnsTo<%= class_name.pluralize.gsub(/::/, '') -%> < ActiveRecord::Migration
+#class AddCalnetAuthenticatedColumnsTo<%= class_name.pluralize.gsub(/::/, '') -%> < ActiveRecord::Migration
+class AddCalnetAuthenticatedColumnsToUsers -%> < ActiveRecord::Migration
 	def self.up
-		table_name = '<%= file_path.gsub(/\//, '_').pluralize %>'
+#		table_name = '<%= file_path.gsub(/\//, '_').pluralize %>'
+		table_name = 'users'
 		create_table table_name do |t|
 			t.timestamps
 		end unless table_exists?(table_name)
@@ -25,7 +27,8 @@ class AddCalnetAuthenticatedColumnsTo<%= class_name.pluralize.gsub(/::/, '') -%>
 	end
 
 	def self.down
-		table_name = '<%= file_path.gsub(/\//, '_').pluralize %>'
+#		table_name = '<%= file_path.gsub(/\//, '_').pluralize %>'
+		table_name = 'users'
 		remove_index  table_name, :uid
 		remove_index  table_name, :sn 
 		remove_column table_name, :uid

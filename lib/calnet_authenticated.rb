@@ -25,7 +25,6 @@ module Calnet
 #	predefine namespace
 end
 require 'calnet_authenticated/calnet_user'
-#require 'calnet_authenticated/user_model'	#	not using
 require 'calnet_authenticated/controller'
 #require 'calnet_authenticated/test_helper'
 
@@ -65,16 +64,23 @@ if defined?(Rails) && Rails.env == 'test' && Rails.class_variable_defined?("@@co
 #		running a rake task
 end
 
-silence_warnings {
-	#	This will complain that the constant is already defined.
-	ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = [
-		'jquery','jquery-ui','jrails']
-}
-#ActionView::Helpers::AssetTagHelper::reset_javascript_include_default
-#ActionView::Helpers::AssetTagHelper.register_javascript_include_default(
-#	'ucb_ccls_engine.js')
-ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion( 
-	:defaults => ['scaffold','application'] )
+
+
+
+#	silence_warnings {
+#		#	This will complain that the constant is already defined.
+#		ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = [
+#			'jquery','jquery-ui','jrails']
+#	}
+#	#ActionView::Helpers::AssetTagHelper::reset_javascript_include_default
+#	#ActionView::Helpers::AssetTagHelper.register_javascript_include_default(
+#	#	'ucb_ccls_engine.js')
+#	ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion( 
+#		:defaults => ['scaffold','application'] )
+
+
+
+
 
 ActionController::Routing::Routes.add_configuration_file(
 	File.expand_path(

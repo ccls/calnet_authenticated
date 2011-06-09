@@ -1,10 +1,6 @@
-#require File.dirname(__FILE__) + '/../test_helper'
 require 'test_helper'
 
-#SessionsController.class_eval do
-#	def show; redirect_to '/'; end
-#end
-class CalnetAuthenticated::SessionsControllerTest < ActionController::TestCase
+class Calnet::SessionsControllerTest < ActionController::TestCase
 	tests SessionsController
 
 	test "should logout if authenticated" do

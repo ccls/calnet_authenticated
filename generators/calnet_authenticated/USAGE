@@ -1,4 +1,4 @@
-script/generate calnet_authenticated CalnetAuthenticatedName [options]
+script/generate calnet_authenticated User
 
 
 Description:

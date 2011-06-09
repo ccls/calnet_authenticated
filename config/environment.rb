@@ -8,6 +8,17 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 
+	if RUBY_PLATFORM =~ /java/
+		#	I'm surprised that I don't need this in my apps.
+		config.gem 'activerecord-jdbcsqlite3-adapter',
+			:lib => 'active_record/connection_adapters/jdbcsqlite3_adapter'
+		config.gem 'jdbc-sqlite3', :lib => 'jdbc/sqlite3'
+		config.gem 'jruby-openssl', :lib => 'openssl'
+	else
+#		config.gem "sqlite3-ruby", :lib => "sqlite3"
+		config.gem "sqlite3"
+	end
+
 	# For CAS / CalNet Authentication
 	config.gem "rubycas-client"
 
@@ -25,37 +36,30 @@ Rails::Initializer.run do |config|
 	config.gem 'jakewendt-html_test'
 	config.gem 'gravatar'
 
-	config.plugin_paths = [
-		File.expand_path(File.join(File.dirname(__FILE__),'../..'))
-	]
-	config.plugins = [ :calnet_authenticated ]
+#	config.plugin_paths = [
+#		File.expand_path(File.join(File.dirname(__FILE__),'../..'))
+#	]
+#	config.plugins = [ :calnet_authenticated ]
 
 	config.frameworks -= [:active_resource]
 
 	config.routes_configuration_file = File.expand_path(
 		File.join(File.dirname(__FILE__),'..','test/config/routes.rb'))
 
-	config.autoload_paths += [
-		File.expand_path(
-			File.join(File.dirname(__FILE__),'..','test/app/models')),
-		File.expand_path(
-			File.join(File.dirname(__FILE__),'..','test/app/controllers'))
-	]
+#	config.autoload_paths += [
+#		File.expand_path(
+#			File.join(File.dirname(__FILE__),'..','test/app/models')),
+#		File.expand_path(
+#			File.join(File.dirname(__FILE__),'..','test/app/controllers'))
+#	]
 
-	config.view_path = [
-		File.expand_path(
-			File.join(File.dirname(__FILE__),'..','test/app/views'))
-	]
+#	config.view_path = [
+#		File.expand_path(
+#			File.join(File.dirname(__FILE__),'..','test/app/views'))
+#	]
 
-	if RUBY_PLATFORM =~ /java/
-		#	I'm surprised that I don't need this in my apps.
-		config.gem 'activerecord-jdbcsqlite3-adapter',
-			:lib => 'active_record/connection_adapters/jdbcsqlite3_adapter'
-		config.gem 'jdbc-sqlite3', :lib => 'jdbc/sqlite3'
-		config.gem 'jruby-openssl', :lib => 'openssl'
-	else
-#		config.gem "sqlite3-ruby", :lib => "sqlite3"
-		config.gem "sqlite3"
+	config.after_initialize do
+		load File.expand_path(File.join(File.dirname(__FILE__),'../lib','calnet_authenticated.rb'))
 	end
 
 end

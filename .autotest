@@ -1,0 +1,69 @@
+#Dir["#{File.dirname(__FILE__)}/config/autotest/**/*rb"].sort.each { |ext| load ext }
+
+class Autotest::Rails
+
+	def run_with_calnet_namespace_models
+
+		##
+		#	Do not search for files to test in ...
+		add_exception %r%versions/%
+		add_exception %r%\.git/%
+
+		##
+		#	I now have the impression that mappings are much like a case
+		#	statement running only the first mapping that matches. As autotest
+		#	already provides one for models, we need to remove it.  The regexes
+		#	MUST match with ==
+		#	remove_mapping( %r{^app/models/.*\.rb$} )
+		remove_mapping( %r%^app/models/(.*)\.rb$% )
+		remove_mapping( %r%^app/controllers/(.*)\.rb$% )
+
+		#	autotest-rails-4.1.0/lib/autotest/rails.rb:30
+		#
+		#	add_mapping %r%^app/models/(.*)\.rb$% do |_, m|
+		#		"test/unit/#{m[1]}_test.rb"
+		#	end
+		add_mapping %r%^app/models/(.*)\.rb$% do |_, m|
+			# "test/unit/calnet/#{m[1]}_test.rb"
+			#	get with or without the calnet namespace (just in case)
+			files_matching %r%^test/unit/.*/#{m[1]}.*_test\.rb$%
+		end
+		add_mapping %r%^app/controllers/(.*)\.rb$% do |_, m|
+			# "test/functional/calnet/#{m[1]}_test.rb"
+			#	get with or without the calnet namespace (just in case)
+			files_matching %r%^test/functional/.*/#{m[1]}.*_test\.rb$%
+		end
+
+		##
+		#	Don't know if this is necessary, but ...
+		#
+		add_mapping( %r{^test/(unit|functional)/calnet/.*_test\.rb$} ) do |filename, _|
+			filename
+		end
+
+		##
+		#	This stops the ...
+		#
+		#	Unable to map class Ccls::IdentifierTest to a file
+		#	Unable to map class Ccls::SubjectTest to a file
+		#
+		#	By default autotest is expecting all the namespaces to end with Test
+		#		ie. CclsTest::IdentifierTest
+		#	Could have renamed the dir, I suppose.
+		#
+		Dir["test/unit/**/*rb"].each do |f|
+			if f =~ /test\/unit\/(calnet\/.*)\.rb/
+				self.extra_class_map[$1.camelcase] = f
+			end
+		end
+		Dir["test/functional/**/*rb"].each do |f|
+			if f =~ /test\/functional\/(calnet\/.*)\.rb/
+				self.extra_class_map[$1.camelcase] = f
+			end
+		end
+
+		run_without_calnet_namespace_models
+	end
+	alias_method_chain :run, :calnet_namespace_models
+
+end

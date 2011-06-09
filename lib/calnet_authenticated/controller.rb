@@ -62,10 +62,10 @@ module InstanceMethods
 	alias_method :login_required, :current_user_required
 
 	def current_user
+		load 'user.rb' unless defined?(User)
 		@current_user ||= if( session && session[:calnetuid] )
 				#	if the user model hasn't been loaded yet
 				#	this will return nil and fail.
-#				$CalnetAuthenticatedUser.find_create_and_update_by_uid(session[:calnetuid])
 				User.find_create_and_update_by_uid(session[:calnetuid])
 			else
 				nil
