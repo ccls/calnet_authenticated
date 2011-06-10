@@ -20,6 +20,7 @@ begin
 
 		gem.files  = FileList['config/routes.rb']
 		gem.files += FileList['app/**/*.rb']
+		gem.files += FileList['app/**/*.erb']	#	don't forget the views!
 		gem.files += FileList['lib/**/*.rb']
 		gem.files += FileList['generators/**/*']	#	this may need tightened!
 		gem.files -= FileList['**/versions/*']
