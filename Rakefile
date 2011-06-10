@@ -64,5 +64,9 @@ rescue LoadError
 end
 
 #	This is an array of Regexs excluded from test coverage report.
-RCOV_EXCLUDES = ['lib/calnet_authenticated/controller.rb']
+RCOV_EXCLUDES = [
+	'lib/calnet_authenticated.rb',
+	'lib/calnet_authenticated/controller.rb',
+	'lib/calnet_authenticated/test_helper.rb'
+]
 
