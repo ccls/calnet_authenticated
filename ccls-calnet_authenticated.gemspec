@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ccls-calnet_authenticated}
-  s.version = "1.2.0"
+  s.version = "1.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George 'Jake' Wendt"]
@@ -18,6 +18,12 @@ Gem::Specification.new do |s|
   s.files = [
     "app/controllers/sessions_controller.rb",
     "app/controllers/users_controller.rb",
+    "app/views/users/_form.html.erb",
+    "app/views/users/edit.html.erb",
+    "app/views/users/index.html.erb",
+    "app/views/users/menu.js.erb",
+    "app/views/users/new.html.erb",
+    "app/views/users/show.html.erb",
     "config/routes.rb",
     "generators/calnet_authenticated/USAGE",
     "generators/calnet_authenticated/calnet_authenticated_generator.rb",
