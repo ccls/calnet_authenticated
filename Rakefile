@@ -61,3 +61,7 @@ begin
 rescue LoadError
 	puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
+
+#	This is an array of Regexs excluded from test coverage report.
+RCOV_EXCLUDES = ['lib/calnet_authenticated/controller.rb']
+

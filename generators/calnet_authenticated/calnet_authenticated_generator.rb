@@ -8,6 +8,14 @@ class CalnetAuthenticatedGenerator < Rails::Generator::Base
 			m.directory('lib/tasks')
 			m.file('calnet_authenticated.rake', 'lib/tasks/calnet_authenticated.rake')
 
+
+
+
+#	may want to consider installing roles.yml
+
+
+
+
 			m.migration_template 'migration.rb', 'db/migrate', 
 				:migration_file_name => "add_calnet_authenticated_columns_to_users"
 #				:migration_file_name => "add_calnet_authenticated_columns_to_#{file_path.gsub(/\//, '_').pluralize}"

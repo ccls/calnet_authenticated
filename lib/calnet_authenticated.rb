@@ -2,7 +2,9 @@ require 'active_record'
 require 'active_support'
 require 'action_controller'
 
+gem 'jakewendt-ruby_extension'
 require 'ruby_extension'
+gem 'jakewendt-simply_helpful'
 require 'simply_helpful'
 require 'gravatar'
 
@@ -13,17 +15,23 @@ require 'casclient/frameworks/rails/filter'
 gem 'ucb_ldap', '>= 1.4.2'
 require 'ucb_ldap'
 
+gem 'jakewendt-simply_authorized'
 require 'simply_authorized'
+gem 'ryanb-acts-as-list'
 require 'acts_as_list'
+gem 'jakewendt-simply_pages'
 require 'simply_pages'
+gem 'jakewendt-rails_extension'
 require 'jakewendt-rails_extension'
 
+#	Don't know if I use CalnetAuthenticated namespace anymore
 module CalnetAuthenticated
 #	predefine namespace
 end
 module Calnet
 #	predefine namespace
 end
+
 require 'calnet_authenticated/calnet_user'
 require 'calnet_authenticated/controller'
 
@@ -59,42 +67,19 @@ if defined?(Rails) && Rails.env == 'test' && Rails.class_variable_defined?("@@co
 	require 'active_support/test_case'
 	require 'calnet_authenticated/test_helper'
 	require 'factory_girl'
-#	else
-#		running a rake task
 end
-
-
-
-
-#	silence_warnings {
-#		#	This will complain that the constant is already defined.
-#		ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = [
-#			'jquery','jquery-ui','jrails']
-#	}
-#	#ActionView::Helpers::AssetTagHelper::reset_javascript_include_default
-#	#ActionView::Helpers::AssetTagHelper.register_javascript_include_default(
-#	#	'ucb_ccls_engine.js')
-#	ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion( 
-#		:defaults => ['scaffold','application'] )
-
-
-
-
 
 ActionController::Routing::Routes.add_configuration_file(
 	File.expand_path(
 		File.join(
 			File.dirname(__FILE__), '../config/routes.rb')))
 
-#ActionController::Base.view_paths <<
-#	File.expand_path(
-#		File.join(
-#			File.dirname(__FILE__), '../app/views'))
-
+gem 'paperclip'
 require 'paperclip'
 if defined? ::Paperclip::Glue
 	ActiveRecord::Base.send(:include, ::Paperclip::Glue)
 else
+	#	older versions did not have "Glue"
 	ActiveRecord::Base.send(:include, ::Paperclip)
 end
 

@@ -15,7 +15,6 @@ Rails::Initializer.run do |config|
 		config.gem 'jdbc-sqlite3', :lib => 'jdbc/sqlite3'
 		config.gem 'jruby-openssl', :lib => 'openssl'
 	else
-#		config.gem "sqlite3-ruby", :lib => "sqlite3"
 		config.gem "sqlite3"
 	end
 
@@ -43,8 +42,13 @@ Rails::Initializer.run do |config|
 
 	config.frameworks -= [:active_resource]
 
+	#	load test/config/routes.rb file.
+	#	config/routes.rb will load when the lib is loaded
 	config.routes_configuration_file = File.expand_path(
 		File.join(File.dirname(__FILE__),'..','test/config/routes.rb'))
+
+#	moved these into the normal app paths and just remove them 
+#	during gem creation
 
 #	config.autoload_paths += [
 #		File.expand_path(
@@ -59,7 +63,7 @@ Rails::Initializer.run do |config|
 #	]
 
 	config.after_initialize do
-		load File.expand_path(File.join(File.dirname(__FILE__),'../lib','calnet_authenticated.rb'))
+		load File.expand_path(File.join(File.dirname(__FILE__),'../lib/calnet_authenticated.rb'))
 	end
 
 end
