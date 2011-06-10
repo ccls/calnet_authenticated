@@ -3,7 +3,7 @@ require 'action_controller'
 #	Further info regarding UCB's CAS setup can be found at 
 #	https://calnet.berkeley.edu/developers/developerResources/cas/CASAppSetup.html#firstLevelServers
 
-module CalnetAuthenticated::Controller
+module Calnet::Controller
 
 	#	Setup the CASClient and add the cas_filter before_filter
 	#	to all application_controller requests.  This can be
@@ -88,5 +88,5 @@ module InstanceMethods
 
 end	#	InstanceMethods
 
-end	#	CalnetAuthenticated::Controller
-ActionController::Base.send(:include,CalnetAuthenticated::Controller)
+end	#	Calnet::Controller
+ActionController::Base.send(:include,Calnet::Controller)
