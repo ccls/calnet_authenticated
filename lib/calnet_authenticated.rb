@@ -26,7 +26,6 @@ module Calnet
 end
 require 'calnet_authenticated/calnet_user'
 require 'calnet_authenticated/controller'
-#require 'calnet_authenticated/test_helper'
 
 #	I don't think that this is needed
 #	Apparently it is.  I don't quite understand

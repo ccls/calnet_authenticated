@@ -1,5 +1,9 @@
 module CalnetAuthenticated::TestHelper
 
+	def self.included(base)
+		base.extend(ClassMethods)
+	end
+
 	def login_as( user=nil )
 		uid = ( user.is_a?(User) ) ? user.uid : user
 		if !uid.blank?
@@ -58,7 +62,39 @@ module CalnetAuthenticated::TestHelper
 		assert_nil session[:calnetuid]
 	end
 
-end
+	module ClassMethods
+
+		def site_administrators
+			@site_administrators ||= %w( superuser administrator )
+		end
+
+		def non_site_administrators
+			@non_site_administrators ||= ( all_test_roles - site_administrators )
+		end
+
+		def site_editors
+			@site_editors ||= %w( superuser administrator editor )
+		end
+
+		def non_site_editors
+			@non_site_editors ||= ( all_test_roles - site_editors )
+		end
+
+		def site_readers
+			@site_readers ||= %w( superuser administrator editor interviewer reader )
+		end
+
+		def non_site_readers
+			@non_site_readers ||= ( all_test_roles - site_readers )
+		end
+
+		def all_test_roles
+			@all_test_roles = %w( superuser administrator editor interviewer reader active_user )
+		end
+	end
+
+end	#	module CalnetAuthenticated::TestHelper
+
 require 'active_support'
 require 'active_support/test_case'
 ActiveSupport::TestCase.send(:include,CalnetAuthenticated::TestHelper)
