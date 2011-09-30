@@ -45,14 +45,14 @@ class Calnet::User < ActiveRecord::Base
 		user
 	end
 
-	#	FYI.  gravatar can't deal with a nil email
-	gravatar :mail, :rating => 'PG'
-
-	#	gravatar.url will include & that are not encoded to &amp;
-	#	which works just fine, but technically is invalid html.
-	def gravatar_url
-		gravatar.url.gsub(/&/,'&amp;')
-	end
+#	#	FYI.  gravatar can't deal with a nil email
+#	gravatar :mail, :rating => 'PG'
+#
+#	#	gravatar.url will include & that are not encoded to &amp;
+#	#	which works just fine, but technically is invalid html.
+#	def gravatar_url
+#		gravatar.url.gsub(/&/,'&amp;')
+#	end
 
 	def to_s
 		displayname
