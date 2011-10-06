@@ -32,14 +32,8 @@ Rails::Initializer.run do |config|
 	config.gem 'jakewendt-rails_extension'
 	config.gem 'jakewendt-simply_authorized'
 	config.gem 'jakewendt-simply_helpful'
-	config.gem 'jakewendt-html_test'
-#	config.gem 'gravatar'
+	config.gem 'ccls-html_test'
 	config.gem 'jrails'
-
-#	config.plugin_paths = [
-#		File.expand_path(File.join(File.dirname(__FILE__),'../..'))
-#	]
-#	config.plugins = [ :calnet_authenticated ]
 
 	config.frameworks -= [:active_resource]
 
@@ -47,21 +41,6 @@ Rails::Initializer.run do |config|
 	#	config/routes.rb will load when the lib is loaded
 	config.routes_configuration_file = File.expand_path(
 		File.join(File.dirname(__FILE__),'..','test/config/routes.rb'))
-
-#	moved these into the normal app paths and just remove them 
-#	during gem creation
-
-#	config.autoload_paths += [
-#		File.expand_path(
-#			File.join(File.dirname(__FILE__),'..','test/app/models')),
-#		File.expand_path(
-#			File.join(File.dirname(__FILE__),'..','test/app/controllers'))
-#	]
-
-#	config.view_path = [
-#		File.expand_path(
-#			File.join(File.dirname(__FILE__),'..','test/app/views'))
-#	]
 
 	config.after_initialize do
 		load File.expand_path(File.join(File.dirname(__FILE__),'../lib/calnet_authenticated.rb'))

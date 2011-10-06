@@ -2,7 +2,6 @@ require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 
 require 'rake'
 require 'rake/testtask'
-#require 'rake/rdoctask'
 require 'rdoc/task'
 
 require 'tasks/rails'
@@ -45,16 +44,12 @@ begin
 		gem.add_dependency('ucb_ldap', '>= 1.4.2')
 		gem.add_dependency('rubycas-client', '>= 2.2.1')
 		gem.add_dependency('jrails')
-#		gem.add_dependency('jakewendt-simply_helpful')
 		gem.add_dependency('jakewendt-ruby_extension')
-#		gem.add_dependency('jakewendt-simply_authorized')
 		gem.add_dependency('chronic')
 		gem.add_dependency('ssl_requirement')
 		gem.add_dependency('ryanb-acts-as-list')
-#		gem.add_dependency('gravatar')
 		gem.add_dependency('paperclip')	#	not all apps use, but should be there
 		gem.add_dependency('thoughtbot-factory_girl')
-#		gem.add_dependency('jakewendt-simply_pages')
 		gem.add_dependency('jakewendt-rails_extension')
 		gem.add_dependency('RedCloth','!= 4.2.6')
 

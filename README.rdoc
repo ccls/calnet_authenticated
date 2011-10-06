@@ -3,8 +3,6 @@
 In Heavy Development ...
 
 
-
-
 This is a "rails" gem, so much of the code will
 be for testing in a rails app, but will not be
 included in the actual gem.
