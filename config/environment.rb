@@ -29,9 +29,9 @@ Rails::Initializer.run do |config|
 		:lib    => "factory_girl",
 		:source => "http://gems.github.com"
 
-	config.gem 'jakewendt-rails_extension'
-	config.gem 'jakewendt-simply_authorized'
-	config.gem 'jakewendt-simply_helpful'
+	config.gem 'ccls-rails_extension'
+	config.gem 'ccls-simply_authorized'
+	config.gem 'ccls-simply_helpful'
 	config.gem 'ccls-html_test'
 	config.gem 'jrails'
 
