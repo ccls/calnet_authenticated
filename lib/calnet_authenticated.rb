@@ -2,9 +2,9 @@ require 'active_record'
 require 'active_support'
 require 'action_controller'
 
-gem 'jakewendt-ruby_extension'
+gem 'ccls-ruby_extension'
 require 'ruby_extension'
-gem 'jakewendt-simply_helpful'
+gem 'ccls-simply_helpful'
 require 'simply_helpful'
 #require 'gravatar'
 
@@ -15,14 +15,14 @@ require 'casclient/frameworks/rails/filter'
 gem 'ucb_ldap', '>= 1.4.2'
 require 'ucb_ldap'
 
-gem 'jakewendt-simply_authorized'
+gem 'ccls-simply_authorized'
 require 'simply_authorized'
 gem 'ryanb-acts-as-list'
 require 'acts_as_list'
-#gem 'jakewendt-simply_pages'
+#gem 'ccls-simply_pages'
 #require 'simply_pages'
-gem 'jakewendt-rails_extension'
-require 'jakewendt-rails_extension'
+gem 'ccls-rails_extension'
+require 'ccls-rails_extension'
 
 #	Don't know if I use CalnetAuthenticated namespace anymore
 module CalnetAuthenticated
