@@ -4,23 +4,25 @@ require 'action_controller'
 
 gem 'ccls-ruby_extension'
 require 'ruby_extension'
+
 gem 'ccls-simply_helpful'
 require 'simply_helpful'
-#require 'gravatar'
 
 gem 'rubycas-client', '>= 2.2.1'
 require 'rubycas-client'
+
 require 'casclient'
 require 'casclient/frameworks/rails/filter'
+
 gem 'ucb_ldap', '>= 1.4.2'
 require 'ucb_ldap'
 
 gem 'ccls-simply_authorized'
 require 'simply_authorized'
+
 gem 'ryanb-acts-as-list'
 require 'acts_as_list'
-#gem 'ccls-simply_pages'
-#require 'simply_pages'
+
 gem 'ccls-rails_extension'
 require 'ccls-rails_extension'
 
@@ -68,14 +70,6 @@ if defined?(Rails) && Rails.env == 'test' && Rails.class_variable_defined?("@@co
 	require 'calnet_authenticated/test_helper'
 	require 'factory_girl'
 end
-
-#	why the duplicate?
-#
-#ActionController::Routing::Routes.add_configuration_file(
-#	File.expand_path(
-#		File.join(
-#			File.dirname(__FILE__), '../config/routes.rb')))
-
 
 ActionController::Base.view_paths <<
 	File.expand_path(
