@@ -6,9 +6,6 @@
 #	require sa_gem.full_gem_path + '/app/models/role'
 #	require 'simply_authorized/test_tasks'
 #end
-
-#	The above doesn't work.  Should really change it in simply_authorized
-
 unless Gem.source_index.find_name('ccls-simply_authorized').empty?
 	gem 'ccls-simply_authorized'
 	require 'simply_authorized/test_tasks'
