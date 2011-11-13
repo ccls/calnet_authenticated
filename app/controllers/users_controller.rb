@@ -1,5 +1,48 @@
 class UsersController < ApplicationController
 
+	skip_before_filter :login_required, :only => :menu
+
+	before_filter :id_required, :only => [:edit, :show, :update, :destroy]
+	before_filter :may_view_user_required, :except => [:index,:menu]
+	before_filter :may_view_users_required, :only => :index
+
+	ssl_allowed :menu
+
+	def menu
+		respond_to do |format|
+			format.js {}
+		end
+	end
+
+	def show
+		@roles = Role.all
+	end
+
+	def index
+		@users = User.search(params)
+	end
+
+	def destroy
+		@user.destroy
+		redirect_to users_path
+	end
+
+protected
+
+	def id_required
+		if !params[:id].blank? and User.exists?(params[:id])
+			@user = User.find(params[:id])
+		else
+			access_denied("user id required!", users_path)
+		end
+	end
+
+end
+
+__END__
+
+class UsersController < ApplicationController
+
 #ActionView::TemplateError (A copy of ApplicationHelper has been removed from the module tree but is still active!) on line #2 of app/views/layouts/_header.html.erb:
 #	Adding 'unloadable' fixes the above, but I don't know what it
 #	is actually doing.  I'll probably have to do this to the others.
