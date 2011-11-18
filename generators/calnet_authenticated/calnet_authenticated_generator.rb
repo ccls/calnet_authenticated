@@ -83,7 +83,7 @@ class CalnetAuthenticatedGenerator < Rails::Generator::Base
 			m.directory('test/functional')
 			Dir["#{dot}/templates/functional/*rb"].each{|file| 
 				f = file.split('/').slice(-2,2).join('/')
-				m.file(f, "test/functional/#{File.basename(file)}")
+				m.file(f, "test/functional/calnet_authenticated/#{File.basename(file)}")
 			}
 
 #			m.directory('test/unit/authorized')

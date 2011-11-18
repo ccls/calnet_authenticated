@@ -21,6 +21,7 @@ gem 'ryanb-acts-as-list'
 require 'acts_as_list'
 
 #	Don't know if I use CalnetAuthenticated namespace anymore
+#	It is used in functional test names
 module CalnetAuthenticated
 #	predefine namespace
 end
