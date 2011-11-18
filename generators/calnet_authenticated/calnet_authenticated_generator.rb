@@ -15,6 +15,9 @@ class CalnetAuthenticatedGenerator < Rails::Generator::Base
 
 
 
+#	This is alway for a User, so the requirement of "User" to 
+#		the command is a bit unnecessary now.
+
 
 #	may want to consider installing roles.yml
 

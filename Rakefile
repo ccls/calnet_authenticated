@@ -29,7 +29,7 @@ begin
 #		gem.files -= FileList['app/views/layouts/application.html.erb']
 #		gem.files -= FileList['app/controllers/application_controller.rb']
 #		gem.files -= FileList['app/controllers/home_controller.rb']
-#		gem.files -= FileList['app/models/user.rb']
+		gem.files -= FileList['app/models/user.rb']
 
 
 #   
