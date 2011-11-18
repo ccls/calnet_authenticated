@@ -25,13 +25,15 @@ class CalnetAuthenticatedGenerator < Rails::Generator::Base
 				:migration_file_name => "add_calnet_authenticated_columns_to_users"
 #				:migration_file_name => "add_calnet_authenticated_columns_to_#{file_path.gsub(/\//, '_').pluralize}"
 
+			dot = File.dirname(__FILE__)
+
 			m.directory('public/javascripts')
-			Dir["#{File.dirname(__FILE__)}/templates/javascripts/*js"].each{|file| 
+			Dir["#{dot}/templates/javascripts/*js"].each{|file| 
 				f = file.split('/').slice(-2,2).join('/')
 				m.file(f, "public/javascripts/#{File.basename(file)}")
 			}
 			m.directory('public/stylesheets')
-			Dir["#{File.dirname(__FILE__)}/templates/stylesheets/*css"].each{|file| 
+			Dir["#{dot}/templates/stylesheets/*css"].each{|file| 
 				f = file.split('/').slice(-2,2).join('/')
 				m.file(f, "public/stylesheets/#{File.basename(file)}")
 			}
@@ -60,14 +62,15 @@ class CalnetAuthenticatedGenerator < Rails::Generator::Base
 #			}
 #
 #	more generic way (not yet actually tested)
-#			Dir["#{dot}/templates/app/views/*/**/"].each do |dir|
-#				last_dir = dir.split('/').last
-#				m.directory("app/views/#{last_dir}")
-#				Dir["#{dot}/templates/views/#{last_dir}/*rb"].each do |file|
-#					f = file.split('/').slice(-3,3).join('/')
-#					m.file(f, "app/views/#{last_dir}/#{File.basename(file)}")
-#				end
-#			end
+
+			Dir["#{dot}/templates/views/*/**/"].each do |dir|
+				last_dir = dir.split('/').last
+				m.directory("app/views/#{last_dir}")
+				Dir["#{dot}/templates/views/#{last_dir}/*rb"].each do |file|
+					f = file.split('/').slice(-3,3).join('/')
+					m.file(f, "app/views/#{last_dir}/#{File.basename(file)}")
+				end
+			end
 
 			m.directory('app/controllers')
 			Dir["#{dot}/templates/controllers/*rb"].each{|file| 
