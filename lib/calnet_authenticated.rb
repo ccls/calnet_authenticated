@@ -34,11 +34,11 @@ require 'calnet_authenticated/controller'
 #	I don't think that this is needed
 #	Apparently it is.  I don't quite understand
 #	why my ccls_engine doesn't.
-%w{models controllers}.each do |dir|
-	path = File.expand_path(File.join(File.dirname(__FILE__), '../app', dir))
-	ActiveSupport::Dependencies.autoload_paths << path
-	ActiveSupport::Dependencies.autoload_once_paths << path
-end
+#%w{models controllers}.each do |dir|
+#	path = File.expand_path(File.join(File.dirname(__FILE__), '../app', dir))
+#	ActiveSupport::Dependencies.autoload_paths << path
+#	ActiveSupport::Dependencies.autoload_once_paths << path
+#end
 
 #	I don't think this is needed
 #
@@ -50,10 +50,10 @@ end
 #	or just a dependency with a require.
 #	Since buffler and clic and engine only have config.gem ccls_engine,
 #	we need to be explicit, which is probably better anyway.
-ActionController::Routing::Routes.add_configuration_file(
-	File.expand_path(
-		File.join(
-			File.dirname(__FILE__), '../config/routes.rb')))
+#ActionController::Routing::Routes.add_configuration_file(
+#	File.expand_path(
+#		File.join(
+#			File.dirname(__FILE__), '../config/routes.rb')))
 
 HTML::WhiteListSanitizer.allowed_attributes.merge(%w(
 	id class style
@@ -65,10 +65,10 @@ if defined?(Rails) && Rails.env == 'test' && Rails.class_variable_defined?("@@co
 	require 'factory_girl'
 end
 
-ActionController::Base.view_paths <<
-	File.expand_path(
-		File.join(
-			File.dirname(__FILE__), '../app/views'))
+#ActionController::Base.view_paths <<
+#	File.expand_path(
+#		File.join(
+#			File.dirname(__FILE__), '../app/views'))
 
 gem 'paperclip'
 require 'paperclip'

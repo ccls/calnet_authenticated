@@ -17,17 +17,19 @@ begin
 		gem.authors = ["George 'Jake' Wendt"]
 		# gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
 
-		gem.files  = FileList['config/routes.rb']
-		gem.files += FileList['rails/init.rb']
-		gem.files += FileList['app/**/*.rb']
-		gem.files += FileList['app/**/*.erb']	#	don't forget the views!
+#	no more routes, controllers, views or functional tests.
+#		gem.files  = FileList['config/routes.rb']
+		gem.files  = FileList['rails/init.rb']
+		gem.files += FileList['app/models/*.rb']
+#		gem.files += FileList['app/**/*.rb']
+#		gem.files += FileList['app/**/*.erb']	#	don't forget the views!
 		gem.files += FileList['lib/**/*.rb']
 		gem.files += FileList['generators/**/*']	#	this may need tightened!
 		gem.files -= FileList['**/versions/*']
-		gem.files -= FileList['app/views/layouts/application.html.erb']
-		gem.files -= FileList['app/controllers/application_controller.rb']
-		gem.files -= FileList['app/controllers/home_controller.rb']
-		gem.files -= FileList['app/models/user.rb']
+#		gem.files -= FileList['app/views/layouts/application.html.erb']
+#		gem.files -= FileList['app/controllers/application_controller.rb']
+#		gem.files -= FileList['app/controllers/home_controller.rb']
+#		gem.files -= FileList['app/models/user.rb']
 
 
 #   
@@ -35,10 +37,11 @@ begin
 #		are included as 'files' or 'test_files', but
 #		they need to be included if I'm gonna use'em.
 #
-		gem.test_files  = FileList['test/**/*.rb']
-		gem.test_files -= FileList['test/config/routes.rb']
-		gem.test_files -= FileList['test/factories.rb']
-		gem.test_files -= FileList['test/test_helper.rb']
+		gem.test_files  = FileList['test/unit/calnet/*.rb']
+#		gem.test_files  = FileList['test/**/*.rb']
+#		gem.test_files -= FileList['test/config/routes.rb']
+#		gem.test_files -= FileList['test/factories.rb']
+#		gem.test_files -= FileList['test/test_helper.rb']
 
 		gem.add_dependency('rails', '~> 2')
 		gem.add_dependency('ucb_ldap', '>= 1.4.2')

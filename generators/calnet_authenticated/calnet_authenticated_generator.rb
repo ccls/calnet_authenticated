@@ -3,8 +3,13 @@ class CalnetAuthenticatedGenerator < Rails::Generator::Base
 
 	def manifest
 		record do |m|
+			#	The autotest file will require that the app actually 
+			#		looks for autotest files.
 			m.directory('config/autotest')
 			m.file('autotest_calnet_authenticated.rb', 'config/autotest/calnet_authenticated.rb')
+
+			#	*.rake files in the lib/tasks/ directory are automatically
+			#		loaded so nothing is required to include this.
 			m.directory('lib/tasks')
 			m.file('calnet_authenticated.rake', 'lib/tasks/calnet_authenticated.rake')
 
@@ -30,6 +35,57 @@ class CalnetAuthenticatedGenerator < Rails::Generator::Base
 				f = file.split('/').slice(-2,2).join('/')
 				m.file(f, "public/stylesheets/#{File.basename(file)}")
 			}
+
+
+
+#	Due to the ApplicationController errors, don't use 
+#		controllers in the gem.  Models and unit tests
+#		seem to work just fine as they are subclasses of 
+#		ActiveRecord::Base.  Controllers are subclasses of
+#		ApplicationController, which is in the application.
+#
+#	TODO copy routes maybe?	How to copy in the complex route?
+#				Simple, restful route is simple.
+#				Probably have to do this manually.
+#
+#	TODO copy controllers, views and functional tests.
+#		there are no views
+
+#			m.directory('app/views/photos')
+#			Dir["#{dot}/templates/views/photos/*rb"].each{|file| 
+#				f = file.split('/').slice(-3,3).join('/')
+#	has an extra directory in path which is needed in m.file(f
+#	which is relative to templates/
+#				m.file(f, "app/views/photos/#{File.basename(file)}")
+#			}
+#
+#	more generic way (not yet actually tested)
+#			Dir["#{dot}/templates/app/views/*/**/"].each do |dir|
+#				last_dir = dir.split('/').last
+#				m.directory("app/views/#{last_dir}")
+#				Dir["#{dot}/templates/views/#{last_dir}/*rb"].each do |file|
+#					f = file.split('/').slice(-3,3).join('/')
+#					m.file(f, "app/views/#{last_dir}/#{File.basename(file)}")
+#				end
+#			end
+
+			m.directory('app/controllers')
+			Dir["#{dot}/templates/controllers/*rb"].each{|file| 
+				f = file.split('/').slice(-2,2).join('/')
+				m.file(f, "app/controllers/#{File.basename(file)}")
+			}
+			m.directory('test/functional')
+			Dir["#{dot}/templates/functional/*rb"].each{|file| 
+				f = file.split('/').slice(-2,2).join('/')
+				m.file(f, "test/functional/#{File.basename(file)}")
+			}
+
+#			m.directory('test/unit/authorized')
+#			Dir["#{dot}/templates/unit/*rb"].each{|file| 
+#				f = file.split('/').slice(-2,2).join('/')
+#				m.file(f, "test/unit/authorized/#{File.basename(file)}")
+#			}
+
 		end
 	end
 
