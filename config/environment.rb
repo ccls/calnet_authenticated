@@ -36,10 +36,13 @@ Rails::Initializer.run do |config|
 
 	config.frameworks -= [:active_resource]
 
+
+#	Not necessary anymore
+
 	#	load test/config/routes.rb file.
 	#	config/routes.rb will load when the lib is loaded
-	config.routes_configuration_file = File.expand_path(
-		File.join(File.dirname(__FILE__),'..','test/config/routes.rb'))
+#	config.routes_configuration_file = File.expand_path(
+#		File.join(File.dirname(__FILE__),'..','test/config/routes.rb'))
 
 	config.after_initialize do
 		load File.expand_path(File.join(File.dirname(__FILE__),'../lib/calnet_authenticated.rb'))

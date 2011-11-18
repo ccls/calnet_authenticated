@@ -11,4 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
 	map.resource :session, :only => [ :destroy ]
 
+	map.resource :home, :only => :show
+	map.root :controller => :home, :action => :show
+
 end
