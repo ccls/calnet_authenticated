@@ -2,13 +2,11 @@
 
 In Heavy Development ...
 
-
 This is a "rails" gem, so much of the code will
 be for testing in a rails app, but will not be
 included in the actual gem.
 
 == ToDo
-
 
 * Include migrations with an rsync or a generator
 * preferably a generator, but they are diff in rails 3
@@ -18,6 +16,7 @@ included in the actual gem.
 * import some tests
 * include any test helpers for users
 * Cleanup code.  Isolate requirements
+* Too many quirks to keep controllers and views in gem so install them in app with generator.
 
 == Installation / Usage
 
