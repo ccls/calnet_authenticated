@@ -1,5 +1,5 @@
-class CalnetAuthenticatedGenerator < Rails::Generator::NamedBase
-#class CalnetAuthenticatedGenerator < Rails::Generator::Base
+#class CalnetAuthenticatedGenerator < Rails::Generator::NamedBase
+class CalnetAuthenticatedGenerator < Rails::Generator::Base
 
 	def manifest
 		record do |m|
@@ -13,14 +13,7 @@ class CalnetAuthenticatedGenerator < Rails::Generator::NamedBase
 			m.directory('lib/tasks')
 			m.file('calnet_authenticated.rake', 'lib/tasks/calnet_authenticated.rake')
 
-
-
-#	This is alway for a User, so the requirement of "User" to 
-#		the command is a bit unnecessary now.
-
-
 #	may want to consider installing roles.yml ( actually have in simply_authorized )
-
 
 			m.migration_template 'migration.rb', 'db/migrate', 
 				:migration_file_name => "add_calnet_authenticated_columns_to_users"
