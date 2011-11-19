@@ -1,16 +1,15 @@
-script/generate calnet_authenticated User
-
+script/generate calnet_authenticated
 
 Description:
     Explain the generator
 
 Example:
-    ./script/generate calnet_authenticated User
-
-		requiring the "User" at the end should be removed as its always User
+    ./script/generate calnet_authenticated
 
     This will create:
         a migration file for 
+
+				a bunch of stuff
 
 
 blah blah blah

@@ -1,5 +1,5 @@
-#class CalnetAuthenticatedGenerator < Rails::Generator::NamedBase
-class CalnetAuthenticatedGenerator < Rails::Generator::Base
+class CalnetAuthenticatedGenerator < Rails::Generator::NamedBase
+#class CalnetAuthenticatedGenerator < Rails::Generator::Base
 
 	def manifest
 		record do |m|
@@ -19,9 +19,7 @@ class CalnetAuthenticatedGenerator < Rails::Generator::Base
 #		the command is a bit unnecessary now.
 
 
-#	may want to consider installing roles.yml
-
-
+#	may want to consider installing roles.yml ( actually have in simply_authorized )
 
 
 			m.migration_template 'migration.rb', 'db/migrate', 

@@ -1,5 +1,6 @@
 #class AddCalnetAuthenticatedColumnsTo<%= class_name.pluralize.gsub(/::/, '') -%> < ActiveRecord::Migration
-class AddCalnetAuthenticatedColumnsToUsers -%> < ActiveRecord::Migration
+#class AddCalnetAuthenticatedColumnsToUsers -%> < ActiveRecord::Migration
+class AddCalnetAuthenticatedColumnsToUsers < ActiveRecord::Migration
 	def self.up
 #		table_name = '<%= file_path.gsub(/\//, '_').pluralize %>'
 		table_name = 'users'
