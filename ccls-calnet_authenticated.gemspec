@@ -5,31 +5,32 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ccls-calnet_authenticated}
-  s.version = "1.2.9"
+  s.version = "1.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George 'Jake' Wendt"]
-  s.date = %q{2011-10-12}
+  s.date = %q{2011-11-21}
   s.description = %q{longer description of your gem}
   s.email = %q{github@jakewendt.com}
   s.extra_rdoc_files = [
     "README.rdoc"
   ]
   s.files = [
-    "app/controllers/sessions_controller.rb",
-    "app/controllers/users_controller.rb",
-    "app/views/users/_form.html.erb",
-    "app/views/users/edit.html.erb",
-    "app/views/users/index.html.erb",
-    "app/views/users/menu.js.erb",
-    "app/views/users/new.html.erb",
-    "app/views/users/show.html.erb",
-    "config/routes.rb",
     "generators/calnet_authenticated/USAGE",
     "generators/calnet_authenticated/calnet_authenticated_generator.rb",
     "generators/calnet_authenticated/templates/autotest_calnet_authenticated.rb",
     "generators/calnet_authenticated/templates/calnet_authenticated.rake",
+    "generators/calnet_authenticated/templates/controllers/sessions_controller.rb",
+    "generators/calnet_authenticated/templates/controllers/users_controller.rb",
+    "generators/calnet_authenticated/templates/functional/sessions_controller_test.rb",
+    "generators/calnet_authenticated/templates/functional/users_controller_test.rb",
     "generators/calnet_authenticated/templates/migration.rb",
+    "generators/calnet_authenticated/templates/views/users/_form.html.erb",
+    "generators/calnet_authenticated/templates/views/users/edit.html.erb",
+    "generators/calnet_authenticated/templates/views/users/index.html.erb",
+    "generators/calnet_authenticated/templates/views/users/menu.js.erb",
+    "generators/calnet_authenticated/templates/views/users/new.html.erb",
+    "generators/calnet_authenticated/templates/views/users/show.html.erb",
     "lib/calnet_authenticated.rb",
     "lib/calnet_authenticated/autotest.rb",
     "lib/calnet_authenticated/calnet_user.rb",
@@ -43,7 +44,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
   s.summary = %q{one-line summary of your gem}
-  s.test_files = ["test/functional/calnet/sessions_controller_test.rb", "test/functional/calnet/users_controller_test.rb", "test/functional/home_controller_test.rb", "test/unit/calnet/user_test.rb"]
+  s.test_files = ["test/unit/calnet/user_test.rb"]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
