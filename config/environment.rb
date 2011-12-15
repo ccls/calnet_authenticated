@@ -25,13 +25,8 @@ Rails::Initializer.run do |config|
 	# version 1.3.2 as of Jan 25, 2010
 	config.gem "ucb_ldap", :source => "http://gemcutter.org"
 
-	config.gem "thoughtbot-factory_girl",
-		:lib    => "factory_girl",
-		:source => "http://gems.github.com"
-
 	config.gem 'ccls-common_lib'
 	config.gem 'ccls-simply_authorized'
-	config.gem 'ccls-html_test'
 	config.gem 'jrails'
 
 	config.frameworks -= [:active_resource]
