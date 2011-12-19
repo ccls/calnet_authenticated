@@ -71,12 +71,13 @@ end
 #		File.join(
 #			File.dirname(__FILE__), '../app/views'))
 
-gem 'paperclip'
-require 'paperclip'
-if defined? ::Paperclip::Glue
-	ActiveRecord::Base.send(:include, ::Paperclip::Glue)
-else
-	#	older versions did not have "Glue"
-	ActiveRecord::Base.send(:include, ::Paperclip)
-end
+#	I don't use paperclip anymore, especially not here.
+#	gem 'paperclip'
+#	require 'paperclip'
+#	if defined? ::Paperclip::Glue
+#		ActiveRecord::Base.send(:include, ::Paperclip::Glue)
+#	else
+#		#	older versions did not have "Glue"
+#		ActiveRecord::Base.send(:include, ::Paperclip)
+#	end
 
